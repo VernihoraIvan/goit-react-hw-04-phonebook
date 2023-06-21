@@ -37,11 +37,9 @@ export const App = () => {
       ...state,
       { name: newContact.name, number: newContact.number, id: nanoid() },
     ]);
-    console.log(contacts);
     return;
   };
   const filteredList = () => {
-    console.log(contacts);
     const filteredContacts = contacts.filter(({ name }) =>
       name.toLowerCase().includes(filter.toLowerCase())
     );
@@ -50,10 +48,8 @@ export const App = () => {
 
   useEffect(() => {
     const savedContacts = localStorage.getItem(localStorageKey);
-    console.log(savedContacts);
     if (savedContacts) {
       setContacts(JSON.parse(savedContacts));
-      console.log(JSON.parse(savedContacts));
     }
   }, []);
 
