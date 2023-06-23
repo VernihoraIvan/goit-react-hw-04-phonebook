@@ -24,18 +24,17 @@ export const App = () => {
   };
 
   const handleAddContact = ({ name, number }) => {
-    const newContact = { name, number };
-    const isExistingContact = contacts.some(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    const isExistingContact = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
     if (isExistingContact) {
-      alert(`${newContact.name} is already in contacts`);
+      alert(`${name} is already in contacts`);
       return;
     }
     setContacts(state => [
       ...state,
-      { name: newContact.name, number: newContact.number, id: nanoid() },
+      { name: name, number: number, id: nanoid() },
     ]);
     return;
   };
